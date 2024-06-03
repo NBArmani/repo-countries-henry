@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom'
+import styles from '../styles/Card.module.css'
 function Card({id, name, image, continent}) {
     const navigate = useNavigate()    
 
     return (
-        <div className='country'>
-            <h2>{name}</h2>
+        <div className={styles.container}>
+            <h2 className= {styles.description}>{name}</h2>
             <img src={image} alt={name} onClick={() => navigate(`/detail/${id}`)} />
-            <h2>Continent: {continent}</h2>
+            <h2 className= {styles.description}>Continent: {continent}</h2>
         </div>
     );
 }

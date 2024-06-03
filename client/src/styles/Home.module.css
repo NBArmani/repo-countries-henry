@@ -1,0 +1,9 @@
+.App {
+    text-align: center;
+    background-image: url('https://fotografias.lasexta.com/clipping/cmsimages02/2022/02/09/E271DD5F-F1F4-4160-9EA8-617CE9123AFB/mapa-mundo_98.jpg?crop=1920,1080,x0,y0&width=1900&height=1069&optimize=high&format=webply');
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+ }
+ 
+ 

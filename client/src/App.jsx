@@ -3,6 +3,7 @@ import Landing from './components/Landing'
 import Home from './components/Home'
 import Detail from './components/Detail'
 import Form from './components/Form/Form'
+import './App.css'
 function App() {
   return (
     <div className='App'>

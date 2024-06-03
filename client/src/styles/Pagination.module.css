@@ -1,0 +1,16 @@
+.pagination_button {
+    background-color: rgb(108, 1, 230);
+    font-family: Arial;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination_button:hover {
+    background-color: #350475;
+    /* Cambia el color de fondo al pasar el mouse */
+}

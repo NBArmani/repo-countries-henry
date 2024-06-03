@@ -1,0 +1,30 @@
+.container {
+    background-color: rgba(0, 225, 255, 0.589);
+    padding: 20px;
+    width: 330px;
+    position: absolute;
+    left: 100px;
+    border-radius: 40px;
+    font-family: 'Courier New';
+    border: 5px solid aquamarine
+}
+
+.image {
+    flex: 0 0 200px;
+    
+    margin-right: 20px;
+    
+}
+
+.image img {
+    width: 100%;
+    
+    border-radius: 20px;
+    
+}
+
+.description {
+    flex: 1;
+    
+}
+
