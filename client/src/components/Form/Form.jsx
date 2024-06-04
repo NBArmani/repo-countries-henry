@@ -43,7 +43,10 @@ const Form = () => {
         const validationErrors = Validation(formData)
         setErrors(validationErrors)
 
+        console.log(formData)
+
         if (Object.keys(validationErrors).length === 0) {
+            
             dispatch(postActivity(formData))
             alert('¡Gracias por enviarnos tu actividad!')
             setFormData({
@@ -56,7 +59,8 @@ const Form = () => {
             setErrors({})
         }
     }
-    console.log('available countries: ', availableCountries)
+    
+
     return (
         <div className={styles.container}>
             <form onSubmit={handleSubmit} className={styles.form}>

@@ -56,7 +56,7 @@ const getDetail = (id) => {
 const searchCountries = (name) => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get(`http://localhost:3001/countries?name=${name}`)
+            const { data } = await axios.get(`http://localhost:3001/countries/busqueda?name=${name}`)
             dispatch({
                 type: SEARCH_COUNTRIES,
                 payload: data
@@ -68,11 +68,12 @@ const searchCountries = (name) => {
 }
 
 const postActivity = (activity) => {
+    console.log(activity)
     const endpoint = 'http://localhost:3001/activities'
     return async (dispatch) => {
         try {
             const { data } = await axios.post(endpoint, activity)
-
+            console.log(data)
             return dispatch({
                 type: POST_ACTIVITY,
                 payload: data

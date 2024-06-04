@@ -1,33 +1,50 @@
-const { where } = require('sequelize');
 const { Activity, Country } = require('../db');
 
 exports.createActivity = async (req, res) => {
     try {
-        const { name, season, difficulty, duration, id } = req.body
-        if (!name || !season || !difficulty || !id || !id.length) {
-            return res.status(404).send('missing information')
-        }
-
-        const newActivityData = { name, season, difficulty }
-        if (duration) {
-            newActivityData.duration = duration
-        }
-        const newActivity = await Activity.create(newActivityData)
-
-        const countries = await Country.findAll({
-            where: {
-                id: id
-            }
-        })
-
-        if (!countries.length) {
-            return res.status(400).send('no valid countries are found')
-        }
-
-        await newActivity.addCountries(countries)
-
-        return res.status(200).json(newActivity)
+      const { name, season, difficulty, duration, countries} = req.body;
+  
+  
+      const contries = await Country.findByPk(countries);
+  
+      if (!contries ) {
+        return res.status(404).json({ error: "Countries not found." });
+      }
+  const newActivity = await Activity.create({
+        name,
+        season,
+        difficulty,
+        duration,
+      });
+      await newActivity.addCountry(contries);
+  
+      res.status(201).json(newActivity);
     } catch (error) {
-        return res.status(500).send(error.message)
+      res.status(500).json({ error: error.message });
     }
-}
+  };
+
+
+/*exports.createActivity = async (req, res) => {
+  try {
+    const { name, season, difficulty, duration, countries} = req.body;
+
+
+    const contries = await Country.findByPk(countries);
+
+    if (!contries ) {
+      return res.status(404).json({ error: "Carrer or Company not found." });
+    }
+const newActivity = await Activity.create({
+      name,
+      season,
+      difficulty,
+      duration,
+    });
+    await newActivity.addCountry(contries);
+
+    res.status(201).json(newActivity);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};*/

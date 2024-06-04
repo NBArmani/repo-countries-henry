@@ -3,8 +3,8 @@
     border: 5px solid #180768;
     border-radius: 8px;
     margin: 1rem;
-    width: 400px; 
-    height: 400px; 
+    width: 500px; 
+    height: 500px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
     display: flex; 
@@ -27,7 +27,7 @@
 }
 
 .container img {
-    width: 350px; 
+    width: 400px; 
     height: 250px; 
     object-fit: cover; 
     border-radius: 8px; 

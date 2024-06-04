@@ -15,7 +15,7 @@ exports.informationFromApi = async () => {
                 defaults: {
                     name: country.name.common,
                     image: country.flags.png,
-                    continent: country.continents,
+                    continent: country.continents[0],
                     capital: country.capital ? country.capital[0] : null,
                     subregion: country.subregion,
                     area: country.area,
