@@ -58,7 +58,7 @@ const Form = () => {
     }
     console.log('available countries: ', availableCountries)
     return (
-        <div className={styles.body}>
+        <div className={styles.container}>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div>
                     <label>
@@ -69,7 +69,7 @@ const Form = () => {
                             value={formData.name}
                             onChange={handleChange}
                         />
-                        {errors.name && <span>{errors.name}</span>}
+                        {errors.name && <span className={styles.errors}>{errors.name}</span>}
                     </label>
                 </div>
 
@@ -83,12 +83,12 @@ const Form = () => {
                                 value={level}
                                 checked={parseInt(formData.difficulty) === level}
                                 onChange={handleChange}
-                                className= {styles.radio}
+                                className= {styles.radio_imput}
                             />
                             {`${['Muy fácil', 'Fácil', 'Intermedio', 'Difícil', 'Muy difícil'][level - 1]}`} {Array(level).fill('⭐').join('')}
                         </label>
                     ))}
-                    {errors.difficulty && <span>{errors.difficulty}</span>}
+                    {errors.difficulty && <span className={styles.errors}>{errors.difficulty}</span>}
                 </div>
 
                 <div>
@@ -97,15 +97,16 @@ const Form = () => {
                         name="season"
                         value={formData.season}
                         onChange={handleChange}
+                        className={styles.select_form}
                     >
                         <option value="">Selecciona una temporada</option>
-                        {['Verano', 'Otoño', 'Invierno', 'Primavera'].map((season) => (
+                        {['Verano ☀️', 'Otoño 🍁', 'Invierno ❄️', 'Primavera 🌸'].map((season) => (
                             <option key={season} value={season}>
                                 {season}
                             </option>
                         ))}
-                    </select>
-                    {errors.season && <span>{errors.season}</span>}
+                    </select> <br />
+                    {errors.season && <span className={styles.errors}>{errors.season}</span>}
                 </div>
 
                 <div>
@@ -118,7 +119,7 @@ const Form = () => {
                         min="1"
                         max="24"
                     />
-                    {errors.duration && <span>{errors.duration}</span>}
+                    {errors.duration && <span className={styles.errors}>{errors.duration}</span>}
                 </div>
 
                 <div>
@@ -128,19 +129,20 @@ const Form = () => {
                         value={formData.country}
                         onChange={handleChange}
                         multiple
+                        className={styles.select_form}
                     >
                         <option value=""> Seleccione al menos un país</option>
                         {availableCountries.map(country => (
                             <option key={country.id} value={country.id} >{country.name}</option>
                         ))}
                     </select>
-                    {errors && errors.country && <span >{errors.country}</span>}
+                    {errors && errors.country && <span className={styles.errors}>{errors.country}</span>}
                 </div>
 
                 <div>
-                    <button type="submit">¡Déjanos saber tu actividad!</button>
+                    <button type="submit" className={styles.button_form}>¡Déjanos saber tu actividad!</button>
                     <Link to='/home'>
-                        <button>Volver</button>
+                        <button className={styles.button_form}>Volver</button>
                     </Link>
                 </div>
             </form>

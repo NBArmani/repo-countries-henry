@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { filterByActivity, getCountries, filterByContinent, getActivities, orderByAlphabet, orderByPopulation } from '../redux/actions';
 import { useEffect, useState } from "react";
+import styles from '../styles/Nav.module.css'
 
 const Nav = ({ onSearchResults }) => { // Agregamos la función de devolución de llamada onSearchResults
     const dispatch = useDispatch();
@@ -58,7 +59,7 @@ const Nav = ({ onSearchResults }) => { // Agregamos la función de devolución d
                 <SearchBar onSearch={handleSearch} />
             </div>
             <div>
-                <select name="continent" value={filterContinent} onChange={handleFilterByContinent}>
+                <select name="continent" value={filterContinent} onChange={handleFilterByContinent} className={styles.sel_item}>
                     <option value="all">Todos los continentes</option>
                     <option value="Africa">África</option>
                     <option value="Americas">América</option>
@@ -69,7 +70,7 @@ const Nav = ({ onSearchResults }) => { // Agregamos la función de devolución d
             </div>
 
             <div>
-                <select name="activity" value={filterActivity} onChange={handleFilterByActivity}>
+                <select name="activity" value={filterActivity} onChange={handleFilterByActivity} className={styles.sel_item}>
                     <option value="all">Todas las actividades</option>
                     {activities.map((activity) => (
                         <option key={activity.id} value={activity.name}>{activity.name}</option>
@@ -77,7 +78,7 @@ const Nav = ({ onSearchResults }) => { // Agregamos la función de devolución d
                 </select>
             </div>
             <div>
-                <select value={orderByAlphabetValue} onChange={handleOrderByAlphabet}>
+                <select value={orderByAlphabetValue} onChange={handleOrderByAlphabet} className={styles.sel_item}>
                     <option value="all">Ordenar alfabéticamente</option>
                     <option value="asc">De la A a la Z</option>
                     <option value="desc">De la Z a la A</option>
@@ -85,7 +86,7 @@ const Nav = ({ onSearchResults }) => { // Agregamos la función de devolución d
             </div>
 
             <div>
-                <select value={orderByPopulationValue} onChange={handleOrderByPopulation}>
+                <select value={orderByPopulationValue} onChange={handleOrderByPopulation} className={styles.sel_item}>
                     <option value="all">Ordenar por población</option>
                     <option value="asc">Ascendente</option>
                     <option value="desc">Descendente</option>

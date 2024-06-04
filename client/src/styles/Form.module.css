@@ -1,4 +1,4 @@
-.body {
+.container{
     background-image: url('https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2020/03/curiosidad-mayoria-paises-mundo-llevan-nombre-estas-cuatro-cosas-1893785.jpg?tf=3840x');
     background-size: cover;
     background-position: center;
@@ -11,13 +11,12 @@
 }
 
 
-form {
+.form {
     max-width: 600px;
     padding: 20px;
     border: 5px solid #471d05;
     border-radius: 10px;
     background-color: #cc862bcc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -38,7 +37,7 @@ label {
 
 input[type="text"],
 input[type="number"],
-select {
+.select_form {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -51,11 +50,20 @@ input[type="radio"] {
     margin-right: 5px;
 }
 
-span.error {
-    color: red;
+.radio_input{
+    display: flex;
 }
 
-button {
+.errors {
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    font-size: small;
+
+}
+
+
+.button_form {
     padding: 5px 10px;
     background-color: #6d3f0a;
     color: white;
@@ -66,7 +74,7 @@ button {
     align-items: center;
 }
 
-button:hover {
+.button_form:hover {
     background-color: #5a2806;
 }
 
